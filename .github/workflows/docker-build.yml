@@ -38,6 +38,9 @@ jobs:
             org.opencontainers.image.title=iptv
             org.opencontainers.image.description=自用
             org.opencontainers.image.licenses=MIT
+            org.opencontainers.image.source=https://github.com/jingxue33/iptv
+            org.opencontainers.image.url=https://github.com/jingxue33/iptv
+          sep-labels: ","
       
       - name: Build and push
         uses: docker/build-push-action@v4
@@ -46,6 +49,6 @@ jobs:
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          labels: ${{ join(steps.meta.outputs.labels, ',') }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
