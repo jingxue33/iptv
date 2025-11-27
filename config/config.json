@@ -1,0 +1,77 @@
+{
+    "update_interval": {
+        "days": 2,
+        "hours": 0,
+        "minutes": 0
+    },
+    "output": {
+        "formats": ["m3u", "txt"],
+        "save_path": "c:\\Users\\87821\\Desktop\\iptv\\output"
+    },
+    "sources": {
+        "unicom": {
+            "name": "中国联通",
+            "enabled": true,
+            "url": "https://iptv-org.github.io/iptv/countries/cn.m3u"
+        },
+        "telecom": {
+            "name": "中国电信",
+            "enabled": true,
+            "url": "https://iptv-org.github.io/iptv/countries/cn.m3u"
+        },
+        "mobile": {
+            "name": "中国移动",
+            "enabled": true,
+            "url": "https://iptv-org.github.io/iptv/countries/cn.m3u"
+        },
+        "catv": {
+            "name": "中国广电",
+            "enabled": true,
+            "url": "https://iptv-org.github.io/iptv/countries/cn.m3u"
+        },
+        "hotel": {
+            "name": "酒店源",
+            "enabled": true,
+            "url": "https://iptv-org.github.io/iptv/countries/cn.m3u"
+        },
+        "local": {
+            "name": "本地源",
+            "enabled": true,
+            "file": "sources/local.txt"
+        },
+        "multicast_north": {
+            "name": "北方组播源",
+            "enabled": true,
+            "file": "sources/multicast_north.txt"
+        }
+    },
+    "channel_groups": {
+        "cctv": "📺央视频道",
+        "satellite": "📡卫视频道",
+        "cartoon": "🪁动画频道"
+    },
+    "target_channels": {
+        "cctv": [
+            "CCTV-1", "CCTV-2", "CCTV-3", "CCTV-4", "CCTV-5",
+            "CCTV-6", "CCTV-7", "CCTV-8", "CCTV-9", "CCTV-10",
+            "CCTV-11", "CCTV-12", "CCTV-13", "CCTV-14", "CCTV-15",
+            "CCTV-16", "CCTV-17"
+        ],
+        "satellite": [
+            "湖南卫视", "浙江卫视", "河南卫视", "安徽卫视", "江苏卫视",
+            "东方卫视", "东南卫视", "北京卫视", "湖北卫视", "黑龙江卫",
+            "辽宁卫视", "河北卫视", "江西卫视", "山东卫视", "山西卫视",
+            "重庆卫视", "陕西卫视", "四川卫视", "广东卫视", "深圳卫视",
+            "甘肃卫视", "广西卫视", "贵州卫视", "海南卫视", "天津卫视",
+            "吉林卫视", "内蒙古卫", "青海卫视", "西藏卫视", "新疆卫视",
+            "云南卫视", "黑龙江影视", "黑龙江少儿", "黑龙江都市",
+            "黑龙江综合", "黑龙江新闻"
+        ],
+        "cartoon": [
+            "少儿动画", "卡酷动画", "动漫秀场", "新动漫", "青春动漫",
+            "爱动漫", "中录动漫", "宝宝动画", "CN卡通", "优漫卡通",
+            "金鹰卡通", "睛彩少儿", "黑莓动画", "炫动卡通", "24H国漫热播",
+            "浙江少儿", "河北少儿科教"
+        ]
+    }
+}
