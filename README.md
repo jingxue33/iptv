@@ -37,13 +37,15 @@ iptv/
 
 ## 安装和使用
 
-### 1. 安装依赖
+### 方法一：直接运行（传统方式）
+
+#### 1. 安装依赖
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. 配置文件设置
+#### 2. 配置文件设置
 
 编辑 `config/config.json` 文件，根据需要调整配置：
 
@@ -51,15 +53,54 @@ pip install -r requirements.txt
 - `output_directories`: 设置输出文件路径
 - `update_interval`: 设置定时更新间隔（秒）
 
-### 3. 运行程序
+#### 3. 运行程序
 
 ```bash
 python scripts/main.py
 ```
 
-### 4. 设置定时更新（Windows）
+#### 4. 设置定时更新（Windows）
 
 运行 `setup_scheduled_task.ps1` 脚本创建Windows定时任务，或者直接运行 `start_scheduler.bat` 启动后台更新服务。
+
+### 方法二：Docker容器运行
+
+#### 1. 前提条件
+
+确保您已安装：
+- Docker
+- Docker Compose（可选，用于简化管理）
+
+#### 2. 使用Docker运行
+
+```bash
+# 构建Docker镜像
+docker build -t iptv-service .
+
+# 运行容器（挂载配置和输出目录）
+docker run -d \
+  --name iptv-service \
+  -v $(pwd)/config:/app/config \
+  -v $(pwd)/output:/app/output \
+  iptv-service
+```
+
+#### 3. 使用Docker Compose（推荐）
+
+```bash
+# 启动服务
+docker-compose up -d
+
+# 查看日志
+docker-compose logs -f
+
+# 停止服务
+docker-compose down
+```
+
+### 4. 访问生成的文件
+
+生成的M3U和TXT文件将保存在项目的 `output` 目录中，可直接在宿主机上访问。
 
 ## 频道过滤说明
 

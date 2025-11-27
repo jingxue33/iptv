@@ -6,7 +6,7 @@
     },
     "output": {
         "formats": ["m3u", "txt"],
-        "save_path": "c:\\Users\\87821\\Desktop\\iptv\\output"
+        "save_path": "output"
     },
     "sources": {
         "unicom": {

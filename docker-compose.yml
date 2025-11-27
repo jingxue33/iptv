@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  iptv-service:
+    build: .
+    container_name: iptv-service
+    volumes:
+      - ./output:/app/output  # 挂载输出目录到宿主机
+      - ./config:/app/config  # 挂载配置目录到宿主机
+    environment:
+      - CONFIG_PATH=/app/config/config.json
+    restart: unless-stopped
