@@ -26,29 +26,18 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Extract metadata
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: ghcr.io/${{ github.repository }}
-          tags: |
-            type=ref,event=branch
-            type=sha
-          labels: |
-            org.opencontainers.image.title=iptv
-            org.opencontainers.image.description=自用
-            org.opencontainers.image.licenses=MIT
-            org.opencontainers.image.source=https://github.com/jingxue33/iptv
-            org.opencontainers.image.url=https://github.com/jingxue33/iptv
-          sep-labels: ","
-      
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ join(steps.meta.outputs.labels, ',') }}
+          tags: |
+            ghcr.io/${{ github.repository }}:${{ github.sha }}
+            ghcr.io/${{ github.repository }}:master
+          labels: |
+            org.opencontainers.image.title=iptv
+            org.opencontainers.image.description=自用
+            org.opencontainers.image.licenses=MIT
           cache-from: type=gha
           cache-to: type=gha,mode=max
