@@ -34,11 +34,16 @@ jobs:
           tags: |
             type=ref,event=branch
             type=sha
+          labels: |
+            org.opencontainers.image.title=iptv
+            org.opencontainers.image.description=自用
+            org.opencontainers.image.licenses=MIT
       
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: .
+          file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
